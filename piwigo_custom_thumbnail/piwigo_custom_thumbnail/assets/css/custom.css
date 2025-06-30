@@ -1,0 +1,38 @@
+/* MEME STYLES */
+.new-title-figure {
+  color: #2e81ff;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 26px;
+  margin: 2px 0 0;
+}
+
+.bottom-caption {
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 30px 10px 10px 10px;
+  z-index: 9000;
+  line-height: 30px;
+  bottom: 0;
+}
+
+.new-title-figure-slick {
+  color: #2e81ff;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 13px;
+  margin: 2px 0 0;
+  position: relative;
+}
+
+.new-title-figure-slick .bottom-caption-slick {
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 2px 10px 2px 2px;
+  z-index: 9000;
+  bottom: 0;
+}

@@ -1,0 +1,610 @@
+.at-wrap {
+  width: 100%;
+  height: 80vh;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.at-content {
+  position: relative;
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+
+/** Sidebar **/
+.at-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  max-width: 70px;
+  width: auto;
+  display: flex;
+  align-content: stretch;
+  z-index: 1001;
+  overflow: hidden;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  background: #f7f7f7;
+}
+
+.at-sidebar:hover {
+  max-width: 400px;
+  transition: max-width 0.2s;
+  overflow-y: auto;
+}
+
+.at-viewport {
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 70px;
+  right: 0;
+  bottom: 0;
+  padding-right: 20px;
+}
+
+.at-footer {
+  flex: 0 0 auto;
+  background: #436d9d;
+  color: #fff;
+}
+
+/** Overlay **/
+
+.at-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.at-overlay-content {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-circle {
+  border: 4px solid #f3f3f3; /* Màu nền của vòng xoay */
+  border-top: 4px solid #3498db; /* Màu của vòng xoay */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/** Track selector **/
+.at-track {
+  display: flex;
+  position: relative;
+  padding: 5px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.at-track:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.at-track > .at-track-icon,
+.at-track > .at-track-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.at-track > .at-track-icon {
+  flex-shrink: 0;
+  font-size: 32px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  width: 64px;
+  height: 64px;
+  margin-right: 5px;
+  align-items: center;
+}
+
+.at-track-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.at-track:hover > .at-track-icon {
+  opacity: 0.8;
+}
+
+.at-track.active {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.at-track.active > .at-track-icon {
+  color: #4972a1;
+  opacity: 1;
+}
+
+.at-track > .at-track-name {
+  font-weight: 500;
+}
+
+/** Footer **/
+.at-controls {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background: #436d9d;
+  color: #fff;
+}
+
+.at-controls > div {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.at-controls > div > * {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+  margin: 0 3px;
+}
+
+.at-controls .btn {
+  color: #fff;
+  border-radius: 0;
+  height: 40px;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}
+.at-controls .btn.disabled {
+  cursor: progress;
+  opacity: 0.5;
+}
+
+.at-controls a.active {
+  background: #5588c7;
+  text-decoration: none;
+}
+
+.at-controls .btn i {
+  vertical-align: top;
+}
+
+.at-controls select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 40px;
+  background: #436d9d;
+  padding: 4px 10px;
+  color: #fff;
+  font-size: 16px;
+  text-align-last: center;
+  text-align: center;
+  -ms-text-align-last: center;
+  -moz-text-align-last: center;
+  cursor: pointer;
+}
+
+.at-song-title {
+  font-weight: bold;
+}
+
+.at-cursor-bar {
+  /* Defines the color of the bar background when a bar is played */
+  background: rgba(255, 242, 0, 0.25);
+}
+
+.at-selection div {
+  /* Defines the color of the selection background */
+  background: rgba(64, 64, 255, 0.1);
+}
+
+.at-cursor-beat {
+  /* Defines the beat cursor */
+  background: rgba(64, 64, 255, 0.75);
+  width: 3px;
+}
+
+.at-highlight * {
+  /* Defines the color of the music symbols when they are being played (svg) */
+  fill: #0078ff;
+  stroke: #0078ff;
+}
+
+#alphaTabContainer .dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+#alphaTabContainer .dropdown span {
+  display: block;
+  padding: 5px;
+  color: #333;
+}
+
+#alphaTabContainer .dropdown .dropdown__menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  z-index: 1000;
+}
+
+#alphaTabContainer .dropdown:hover .dropdown__menu {
+  display: block;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-100%);
+}
+
+#alphaTabContainer .dropdown .dropdown__menu li {
+  padding: 4px 8px;
+  transition: background 0.3s;
+}
+
+#alphaTabContainer .dropdown .dropdown__menu li a {
+  text-decoration: none;
+}
+#alphaTabContainer .dropdown .dropdown__link {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#alphaTabContainer .dropdown .dropdown__menu li:hover {
+  background: #eee;
+}
+
+#song-details {
+  font-family: 'Georgia';
+}
+/* Hide empty elements */
+#song-details > *:empty {
+  display: none;
+}
+#song-details h1,
+#song-details h2 {
+  text-align: center;
+}
+
+.alphatab-settings-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.alphatab-settings-title h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.alphatab-section-title {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.alphatab-total-count {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.alphatab-item-list {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-left: 15px;
+}
+
+.alphatab-item {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+}
+
+.alphatab-item div {
+  margin: 5px 0;
+}
+
+.alphatab-item strong {
+  color: #222;
+}
+
+.alphatab-item i {
+  color: #888;
+}
+
+.alphatab-empty {
+  color: #666;
+  font-style: italic;
+}
+
+.alphatab-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.alphatab-button:hover {
+  background-color: #0056b3;
+}
+
+.alphatab-item-list-container {
+  margin-top: 15px;
+  max-height: 600px; /* Chiều cao tối đa */
+  overflow-y: auto; /* Cho phép cuộn */
+  position: relative;
+  border: 1px solid #ddd;
+}
+
+/* Wrapper cho bảng */
+.table-wrapper {
+  position: relative;
+}
+
+/* Màu nền xen kẽ cho các hàng chẵn */
+.alphatab-item-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Màu nền cho các hàng lẻ */
+.alphatab-item-table tbody tr:nth-child(odd) {
+  background-color: #dfdfdf;
+}
+
+/* Hiệu ứng khi hover */
+.alphatab-item-table tbody tr:hover {
+  background-color: #e9f7fe;
+  transition: background-color 0.2s ease;
+}
+
+/* Xử lí btn admin.tpl */
+.btn-active-sucess {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-active-sucess:hover {
+  color: #ffffff;
+  background-color: #218838;
+  text-decoration: none;
+}
+.btn-active-danger {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-active-danger:hover {
+  color: #ffffff;
+  background-color: #c82333;
+  text-decoration: none;
+}
+
+/* Table style */
+.alphatab-item-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.alphatab-item-table input[type='checkbox'] {
+  transform: scale(1.2);
+}
+
+/* Cố định header */
+.alphatab-item-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f8f9fa;
+  border: 1px solid #969696;
+}
+.alphatab-item-table thead tr,
+.alphatab-item-table thead tr th {
+  border: 1px solid #969696;
+}
+
+.alphabtab-item-table th,
+.alphatab-item-table td {
+  padding: 4px 8px;
+  border: 1px solid #969696;
+  text-align: left;
+}
+
+.alphatab-item-table th {
+  padding: 12px 15px;
+  text-align: left;
+  background-color: #f8f9fa;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.alphatab-item-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Đảm bảo ô checkbox không bị thu nhỏ */
+.alphatab-item-table th:first-child {
+  width: 30px;
+  min-width: 30px;
+}
+
+/* Sort buttons */
+#sort-asc,
+#sort-desc {
+  margin-left: 10px;
+}
+
+/* Form actions */
+.form-actions {
+  margin-top: 15px;
+}
+
+/* Style cho checkbox */
+#select-all {
+  transform: scale(1.2);
+  margin: 0;
+  cursor: pointer;
+}
+
+/* CSS PHÂN TRANG */
+
+/* Phân trang */
+.alphatab-pagination {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+}
+
+.alphatab-pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+}
+
+.alphatab-pagination-controls .pagination-info {
+  color: #666;
+  font-size: 14px;
+}
+
+.alphatab-pagination-controls .pagination-links {
+  display: flex;
+  gap: 5px;
+}
+
+.alphatab-pagination-controls .page-link {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.alphatab-pagination-controls .page-link:hover,
+.alphatab-pagination-controls .page-link.current-page {
+  background-color: #0078d7;
+  color: white;
+  border-color: #0078d7;
+  text-decoration: none;
+  scale: 1.1;
+}
+
+.alphatab-pagination-controls .page-link.first-page,
+.alphatab-pagination-controls .page-link.last-page {
+  padding: 5px 8px;
+}
+
+.alphatab-pagination-controls .page-link.prev-page,
+.alphatab-pagination-controls .page-link.next-page {
+  padding: 5px 8px;
+}
+
+/* Nút Read Scores khi disabled */
+.btn-active-sucess:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Hiệu ứng khi hover vào nút enabled */
+.btn-active-sucess:not(:disabled):hover {
+  background-color: #218838;
+}
+
+/* Badge hiển thị số lượng được chọn */
+#read-scores-btn {
+  position: relative;
+  display: inline-block;
+}
+.alphatab-selected-count-badge {
+  position: absolute;
+  top: -10px;
+  left: -15px;
+  display: inline-block;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 2px;
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: white;
+  background-color: #dc3545;
+  border-radius: 9px;
+  vertical-align: middle;
+}
+
+/* Khi không có item nào được chọn */
+.alphatab-selected-count-badge:empty {
+  display: none;
+}
+
+/* Hiệu ứng khi hover */
+.btn-active-sucess:hover .alphatab-selected-count-badge {
+  background-color: #c82333;
+}
