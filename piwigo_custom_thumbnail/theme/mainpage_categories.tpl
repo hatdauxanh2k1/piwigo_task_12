@@ -201,4 +201,3 @@ jQuery(document).ready(function() {
 
 });
 {/footer_script}
-{debug}
