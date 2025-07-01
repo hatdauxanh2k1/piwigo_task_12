@@ -172,4 +172,3 @@ $('#theImage img').bind('swipeleft swiperight', function (event) {
   </div>
 {if !empty($PLUGIN_PICTURE_AFTER)}{$PLUGIN_PICTURE_AFTER}{/if}
 </div>
-{debug}
