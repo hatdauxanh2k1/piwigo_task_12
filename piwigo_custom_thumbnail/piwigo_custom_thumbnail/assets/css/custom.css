@@ -19,3 +19,12 @@
   bottom: 0;
   overflow-wrap: break-word;
 }
+
+#thumbnailCarousel .slick-track {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+#thumbnailCarousel .slick-track .slick-slide {
+  width: auto !important;
+}
